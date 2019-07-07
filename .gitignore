@@ -1,4 +1,6 @@
-# Logs
+project.config.json
+.DS_Store
+#Logs
 logs
 *.log
 npm-debug.log*
