@@ -1,0 +1,22 @@
+<!--pages/index/index.wxml-->
+<view class="bg">
+  <view class="image">
+    <swiper indicator-dots="true" interval="5000" autoplay="true" indicator-color="#fff" indicator-active-color="#729c77" circular="true">
+      <swiper-item><image src="cloud://wechat01-gp5hv.7765-wechat01-gp5hv/indexImage/timg.jpeg"></image>
+      </swiper-item>
+      <swiper-item><image src="cloud://wechat01-gp5hv.7765-wechat01-gp5hv/indexImage/timg3.jpeg"></image>
+      </swiper-item>
+      <swiper-item><image src="cloud://wechat01-gp5hv.7765-wechat01-gp5hv/indexImage/timg6.jpeg"></image>
+      </swiper-item>
+      <swiper-item><image src="cloud://wechat01-gp5hv.7765-wechat01-gp5hv/indexImage/timg9.jpeg"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class="button">
+    <button bindtap="order">点餐</button>
+    <button type="primary">外卖</button>
+  </view>
+  <!-- <view>
+  <button bindtap="add">add</button>
+  </view> -->
+</view>

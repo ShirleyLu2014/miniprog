@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+var orders=[
+  "5d20ca535d9f81e7e667a68b","5d20ca535d9f81e7e667a68d","5d20ca535d9f81e7e667a68f","5d20ca535d9f81e7e667a691","5d20ca535d9f81e7e667a693","5d20ca535d9f81e7e667a695","5d20ca535d9f81e7e667a697","5d20ca535d9f81e7e667a69a","5d20ca535d9f81e7e667a69c","5d20ca535d9f81e7e667a69e","5d20ca535d9f81e7e667a6a0","5d20ca535d9f81e7e667a6a2","5d20ca535d9f81e7e667a6a4","5d20ca535d9f81e7e667a6a6","5d20ca535d9f81e7e667a6a8","5d20ca535d9f81e7e667a6aa","5d20ca535d9f81e7e667a6ac","5d20ca535d9f81e7e667a6ae","5d20ca535d9f81e7e667a6b0","5d20ca535d9f81e7e667a6b2","5d20ca535d9f81e7e667a6b6","5d20ca535d9f81e7e667a6b8","5d20ca535d9f81e7e667a6ba","5d20ca535d9f81e7e667a6bc","5d20ca535d9f81e7e667a6be","5d20ca535d9f81e7e667a6c0","5d20ca535d9f81e7e667a6c2","5d20ca535d9f81e7e667a6c4","5d20ca535d9f81e7e667a6c6","5d20ca535d9f81e7e667a6c8","5d20ca535d9f81e7e667a6ca","5d20ca535d9f81e7e667a6cc","5d20ca535d9f81e7e667a6ce","5d20ca535d9f81e7e667a6d0","5d20ca535d9f81e7e667a6d2","5d20ca535d9f81e7e667a6d4","5d20ca535d9f81e7e667a6d6","5d20ca535d9f81e7e667a6d8","5d20ca535d9f81e7e667a6da","5d20ca535d9f81e7e667a6dc","5d20ca535d9f81e7e667a6e0","5d20ca535d9f81e7e667a6e2"
+];
+var teas=[
+  {"_id":"14dc756e5d1b81770516683f1738e8be","title":"柠檬汁","price":6.0},
+  {"_id":"14dc756e5d1b817705166858002b2ae5","price":10.0,"title":"金桔柠檬汁"},
+  {"_id":"14dc756e5d1b8179051668ed4f914b7e","title":"红豆QQ奶茶","price":16.0},
+  {"_id":"14dc756e5d1b8207051695d05cd4817c","title":"珍珠奶茶","price":14.0},
+  {"_id":"2f54b0685d1b81730516f9f879d590e4","price":12.0,"title":"统一布丁奶茶"},
+  {"_id":"2f54b0685d1b81760516faec5344d8d2","price":10.0,"title":"奶茶"},
+  {"_id":"2f54b0685d1b81780516fb3a53cc38ee","title":"焦糖奶茶","price":14.0},
+  {"_id":"2f54b0685d1b81780516fb6726cde24c","title":"阿萨姆红茶","price":12.0},
+  {"_id":"2f54b0685d1b820505172821157f6dc5","price":14.0,"title":"冻顶乌龙茶"},
+  {"_id":"6dfb26295d1b817605153b507040412b","title":"红茶拿铁","price":12.0},
+  {"_id":"6dfb26295d1b817905153c0a03c9c5ff","title":"焦糖红茶拿铁","price":14.0},
+  {"_id":"6dfb26295d1b817b05153c940713d3e7","title":"柠檬蜜","price":8.0},
+  {"_id":"6dfb26295d1b8206051568dc4fbe9823","price":14.0,"title":"冰淇淋红茶"}
+];
+var str="";
+for(var i=0;i<orders.length;i++){
+  var n=Math.ceil(Math.random()*4);
+  for(var j=0;j<n;j++){
+    var pi=parseInt(Math.random()*13);
+    str+=`{
+      "oid":"${orders[i]}",
+      "pid":"${teas[pi]['_id']}",
+      "title":"${teas[pi]['title']}",
+      "price":"${teas[pi]['price']}",
+      "count":${Math.ceil(Math.random()*4)}.0,
+      "memo":""
+    }\n`
+  }
+}
+console.log(str);
+</script>
+</body>
+</html>

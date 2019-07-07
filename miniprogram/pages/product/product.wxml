@@ -1,0 +1,19 @@
+<!--pages/product/product.wxml-->
+<view bindtap="imgg">显示单张图片</view>
+<image src="{{img.image}}"></image>
+<button bindtap="insert">添加数据</button>
+<button bindtap="update">更新数据</button>
+<button bindtap="del">删除数据</button>
+<button bindtap="select">查询数据</button>
+<view wx:for="{{data}}" wx:key="index">
+  <text>{{item.title}}</text>    <text bindtap="del" data-id="{{item._id}}">删除</text>
+</view>
+<view bindtap="add">调用云函数</view>
+<view bindtap="getOpenid">获取登录用户</view>
+<view bindtap="delData">云函数批量删除数据</view>
+<view>云存储</view>
+<button bindtap="upload">上传图片</button>
+<button bindtap="getImage">展示图片</button>
+<view bindtap="myupload">上传图片并且保存进集合</view>
+<view bindtap="showPic">显示图片</view>
+<image wx:for="{{picList}}" wx:key="index" src="{{item.fileID}}" style="width:100rpx;height:100rpx;"></image>

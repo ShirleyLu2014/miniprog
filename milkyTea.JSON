@@ -1,0 +1,40 @@
+{
+	"pid": "4",
+    "title": "柠檬绿",
+    "brief": "果味十足，口感清爽的8冰茶，在炎热的夏季简直是一杯解暑神饮名奶茶品牌", 
+    "image": "https://7765-wechat01-gp5hv-1259439039.tcb.qcloud.la/bg/milkyTea/04.jpg?sign=e5180984354bf053ef357a7fb0749d1c&t=1562020592",
+    "price": "7",
+    "rawMaterial": "柠檬绿"
+}
+{
+	"pid": "5",
+    "title": "柠檬青",
+    "brief": "鲜榨柠檬汁加酸甜养乐多，味道真的好", 
+    "image": "https://7765-wechat01-gp5hv-1259439039.tcb.qcloud.la/bg/milkyTea/05.jpg?sign=3b8d4be5081d5a655032a15aeae0d760&t=1562021082",
+    "price": "7",
+    "rawMaterial": "柠檬青"
+}
+{
+	"pid": "6",
+    "title": "波霸奶茶",
+    "brief": "果味十足，口感清爽的8冰茶，在炎热的夏季简直是一杯解暑神饮名奶茶品牌", 
+    "image": "https://7765-wechat01-gp5hv-1259439039.tcb.qcloud.la/bg/milkyTea/06.jpg?sign=9b6c8d6f8f648ed4f216b77a69b4a0ed&t=1562021142",
+    "price": "7",
+    "rawMaterial": "奶茶"
+}
+{
+	"pid": "7",
+    "title": "可可芭蕾",
+    "brief": "使用法国进口巧克力粉，传递古老马雅的风味与摩登时尚，所激荡出的醇韵之作，划开巧克力的饮品传奇!", 
+    "image": "https://7765-wechat01-gp5hv-1259439039.tcb.qcloud.la/bg/milkyTea/07.jpg?sign=d2fc7641ae682bb2e254306f21c4c428&t=1562021301",
+    "price": "12",
+    "rawMaterial": "奶茶"
+}
+{
+	"pid": "8",
+    "title": "冰缘",
+    "brief": "使用法国进口巧克力粉，传递古老马雅的风味与摩登时尚，所激荡出的醇韵之作，划开巧克力的饮品传奇!", 
+    "image": "https://7765-wechat01-gp5hv-1259439039.tcb.qcloud.la/bg/milkyTea/07.jpg?sign=d2fc7641ae682bb2e254306f21c4c428&t=1562021301",
+    "price": "12",
+    "rawMaterial": "奶茶"
+}

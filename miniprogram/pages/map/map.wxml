@@ -1,0 +1,21 @@
+<!--pages/map/map.wxml-->
+<!--form表单-->
+<!-- <form bindsubmit="formSubmit">-->
+    <!--地址描述输入框,示例：北京市海淀区彩和坊路海淀西大街74号-->
+    <!-- <input style="border:1px solid #000;" name="geocoder"></input> -->
+    <!--提交表单数据-->
+    <!-- <button form-type="submit">地址解析</button> -->
+<!-- </form> -->
+<!--地址描述经纬度展示-->
+<!-- <view>地址纬度：{{poi.latitude}}</view>
+<view>地址经度：{{poi.longitude}}</view>  -->
+<map
+id="myMap"
+style="width: 100%; height: 300px;"
+longitude="{{longitude}}" latitude="{{latitude}}"
+scale='16'
+subkey="NQNBZ-6BNR3-N5D3K-YPPO2-HHCVS-7FBIP"
+polyline="{{polyline}}"
+markers="{{markers}}"
+cover-view="true"
+></map>

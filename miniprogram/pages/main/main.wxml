@@ -1,0 +1,94 @@
+<!--pages/main/main.wxml-->
+<view class="center">
+  <view class="left">
+    <view wx:for="{{tabMenu}}" class="{{index==tabi?'active':''}}" wx:key="index" data-tabi="{{index}}" bindtap='changeTabi'>{{item.tTitle}}</view>
+  </view>
+  <view class="right">
+    <view class="bigImage">
+      <image  src="cloud://wechat01-gp5hv.7765-wechat01-gp5hv/mainBigImage/timg5.jpeg"></image>
+    </view>
+    <view class="container" bindtouchstart='start' bindtouchmove='move' bindtouchend='end'>
+      <view class="list" style="margin-top:{{marginTop}}rpx">
+        <view class="milkyList" wx:for="milkyTea" wx:key="index">
+          <text>{{tabMenu[index].tTitle}}</text>
+          <view class="item" wx:for="{{milkyTea[index]}}" wx:key="index">
+            <view class="itemLeft">
+              <image src="{{item.image}}"></image>
+            </view>
+            <view class="itemRight">
+              <view class="title">{{item.title}}</view>
+              <view class="brief">{{item.brief}}</view>
+              <view class="lastLine">
+                <view class="price">¥{{item.price}}.00</view>
+                <view class="btn1">
+                  <view class="reduce" wx:if="{{isShowBtn1}}">
+                    <image src="cloud://wechat01-gp5hv.7765-wechat01-gp5hv/mianImage/minus-circle.png"></image>
+                  </view>
+                  <view class="count" wx:if="{{isShowBtn1}}">1</view>
+                  <view class="add" bindtap='showChooseBox' data-id="{{item._id}}">
+                    <image src="cloud://wechat01-gp5hv.7765-wechat01-gp5hv/mianImage/plus-circle-fill.png"></image>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<van-popup
+  show="{{ showBox1 }}"
+  position="bottom"
+  overlay="{{ false }}"
+  bind:close="onClose"
+>
+  <view class="chooseBox">
+    <view>
+      <view class="item">
+        <view class="itemLeft">
+          <image src="cloud://wechat01-gp5hv.7765-wechat01-gp5hv/1562081798041.jpg"></image>
+        </view>
+        <view class="itemRight">
+          <view class="title">柠檬汁</view>
+          <view class="brief">
+            <text wx:for="{{typeList}}" wx:key="{{index}}">{{item}}</text>
+          </view>
+          <view class="lastLine">
+            <view class="price">¥16.00</view>
+          </view>
+        </view>
+        <view class="closeBtn" bindtap="closeChooseBox" >
+          <image src="cloud://wechat01-gp5hv.7765-wechat01-gp5hv/mianImage/close.png"></image>
+        </view>
+      </view>
+    </view>
+    <scroll-view scroll-y style="height: 400rpx;" >
+      <view class="type">
+        <view class="typeTitle">杯型</view>
+        <view class="typeList">
+           <view wx:for="{{cup}}" wx:key="{{item.cid}}" class="{{cid==index?'active':''}}" bindtap="switchCup" data-index="{{index}}" data-cid="{{item.cid}}" data-cname="{{item.cname}}">{{item.cname}}</view>
+        </view>
+      </view>
+      <view class="type">
+        <view class="typeTitle">冰度</view>
+        <view class="typeList">
+           <view wx:for="{{ice}}" wx:key="{{item.iid}}" class="{{iid==index?'active':''}}" bindtap="switchIce" data-index="{{index}}" data-iid="{{item.iid}}" data-iname="{{item.iname}}">{{item.iname}}</view>
+        </view>
+      </view>
+      <view class="type">
+        <view class="typeTitle">糖度</view>
+        <view class="typeList">
+           <view wx:for="{{sugar}}" wx:key="{{item.sid}}" class="{{sid==index?'active':''}}" bindtap="switchSugar" data-index="{{index}}" data-sid="{{item.sid}}">{{item.sname}}</view>
+        </view>
+      </view>
+      <view class="type">
+        <view class="typeTitle">配料</view>
+        <view class="typeList">
+           <view wx:for="{{assets}}" wx:key="{{item.aid}}" class="{{aid==index?'active':''}}" bindtap="switchAssets" data-index="{{index}}" data-aid="{{item.aid}}">{{item.aname}}<text class="aprice {{aid==index?'activeText':''}}"> ¥{{item.aprice}}</text></view>
+        </view>
+      </view>
+    </scroll-view>
+    <button class="chooseBtn">选好了</button>
+  </view>
+</van-popup>
