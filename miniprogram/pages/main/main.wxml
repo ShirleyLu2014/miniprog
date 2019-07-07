@@ -1,15 +1,15 @@
 <!--pages/main/main.wxml-->
-<view class="center">
-  <view class="left">
-    <view wx:for="{{tabMenu}}" class="{{index==tabi?'active':''}}" wx:key="index" data-tabi="{{index}}" bindtap='changeTabi'>{{item.tTitle}}</view>
+<view class="center" >
+  <view class="left" style="height:{{windowHeight}}px">
+    <view wx:for="{{tabMenu}}" class="{{index==tabi?'active':''}}" wx:key="index" data-tabi="{{index}}" data-id="{{tabMenu[index].id}}" bindtap='changeTabi'>{{item.tTitle}}</view>
   </view>
-  <view class="right">
+  <view class="right"  style="height:{{windowHeight}}px">
     <view class="bigImage">
       <image  src="cloud://wechat01-gp5hv.7765-wechat01-gp5hv/mainBigImage/timg5.jpeg"></image>
     </view>
-    <view class="container" bindtouchstart='start' bindtouchmove='move' bindtouchend='end'>
-      <view class="list" style="margin-top:{{marginTop}}rpx">
-        <view class="milkyList" wx:for="milkyTea" wx:key="index">
+    <view class="container" style="height:{{scrollHeight}}px;">
+      <scroll-view scroll-y style="height:{{scrollHeight}}px;" bindscroll="scroll" scroll-into-view="{{toView}}" bindscrolltolower="tolower" scroll-with-animation="true">
+        <view class="milkyList" wx:for="milkyTea" wx:key="index" id="{{tabMenu[index].id}}">
           <text>{{tabMenu[index].tTitle}}</text>
           <view class="item" wx:for="{{milkyTea[index]}}" wx:key="index">
             <view class="itemLeft">
@@ -33,7 +33,7 @@
             </view>
           </view>
         </view>
-      </view>
+      </scroll-view>
     </view>
   </view>
 </view>

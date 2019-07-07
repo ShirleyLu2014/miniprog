@@ -26,9 +26,6 @@ view.center{
 .right>.container{
   height:800rpx; overflow:hidden;
 }
-.right>.container>.list{
-  transition:all .5s linear;
-}
 .bigImage>image{
   width:100%;
   height:300rpx;

@@ -7,12 +7,11 @@ Page({
   data: {
   //assets:[ {aname:xxx, price:xxx} , ... , ... , ... ],
     tabi:0,
-    marginTop:0,
+    scrollHeight:0,
+    toView:"",
     tabMenu:[],    //商品分类列表
     floor:[],
-    moving:false,
-    timer:null,
-    startY:0,
+    windowHeight:0,
     milkyTea:[
       [],    //店长推荐商品列表
       [],    //找好茶商品列表
@@ -75,9 +74,23 @@ Page({
     delete cart["_id"]*/
   },
   changeTabi(e){
+    var toView=e.currentTarget.dataset.id;
     var tabi=e.currentTarget.dataset.tabi;
-    var marginTop = this.data.floor[tabi];
-    this.setData({tabi,marginTop});
+    this.setData({toView, tabi});
+  },
+  tolower(){
+    this.setData({ toView: this.data.tabMenu[this.data.tabMenu.length - 1].id, tabi: this.data.tabMenu.length - 1})
+  },
+  scroll(e){
+    var scrollTop=e.detail.scrollTop;
+    for(var i=0; i<this.data.floor.length;i++){
+      if(i<this.data.floor.length-1){
+        if(scrollTop>=this.data.floor[i]&&scrollTop<this.data.floor[i+1]){
+          this.setData({tabi:i})
+          break;
+        }
+      }
+    }
   },
   //点击添加按钮显示选择商品详情框
   showChooseBox(e) {
@@ -137,7 +150,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log("===页面开始调用getAllTea云函数===")
+    wx.getSystemInfo({
+      success: res => {
+        this.setData({windowHeight: res.windowHeight,  scrollHeight: res.windowHeight - 140 });
+      }
+    });
     wx.cloud.callFunction({
       name:"getMenu",
       success: e=>{
@@ -151,13 +168,12 @@ Page({
       success: e => {
         console.log("getAllTea成功", e)
         this.setData({ milkyTea:e.result });
-        console.log("===页面正常获得云函数响应结果===")
         var floor=[0];
-        var marginTop=0;
+        var scrollTop=0;
         for(var i=1;i<this.data.tabMenu.length;i++){
           var length = this.data.milkyTea[i-1].length;
-          marginTop += -length * 200 - 87 - length * 9;
-          floor.push(marginTop);
+          scrollTop += length * 92 + 28;
+          floor.push(scrollTop);
         }
         this.setData({floor});
       }, 
@@ -191,42 +207,6 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
-  },
-  start(e){
-    if(this.data.moving==false){
-      var touch=e.touches[0];
-      this.data.startY=touch.clientY;
-      this.setData({moving:true});
-      clearTimeout(this.data.timer);
-      this.setData({timer:setTimeout(()=>{
-        this.setData({moving:false});
-      },500)});
-    }
-  },
-  move(e){
-    var dist=e.touches[0].clientY-this.data.startY;
-    var marginTop=this.data.marginTop + dist;
-    var maxTop = this.data.floor[this.data.tabMenu.length - 1];
-    if(marginTop>0){
-      marginTop=0;
-    }else if(marginTop<maxTop){
-      marginTop=maxTop;
-    }
-    this.setData({marginTop});
-    if (marginTop >= this.data.floor[this.data.tabMenu.length - 2]){
-      this.setData({ tabi: this.data.tabMenu.length - 1});
-    }else{
-      for (var i = 0; i < this.data.tabMenu.length-1; i++) {
-        console.log(this.data.floor, this.data.marginTop);
-        if (marginTop >= this.data.floor[i] && marginTop < this.data.floor[i + 1]) {
-          this.setData({tabi:i});
-          break;
-        }
-      }
-    }
-  },
-  end(){
 
   },
   /**
